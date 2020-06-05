@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} {{ evenements.titre}}{% endblock %}
+
+{% block body %}
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-8">
+
+        </div>
+        <div class="col-md-4">
+        <h1>{{ Evenement.titre}}</h1>
+        <h2>{{ Evenement.contenu}}</h2>
+        </diV>
+    </div>
+    <p>
+        {{ Evenement.contenu | nl2br }}
+        </p>
+{% endblock %} 

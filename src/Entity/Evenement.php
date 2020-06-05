@@ -4,7 +4,7 @@ namespace App\Entity;
 
 use App\Repository\EvenementRepository;
 use Doctrine\ORM\Mapping as ORM;
-
+use Cocur\Slugify\Slugify;
 /**
  * @ORM\Entity(repositoryClass=EvenementRepository::class)
  */
@@ -22,6 +22,7 @@ class Evenement
      */
     private $titre;
 
+    
     /**
      * @ORM\Column(type="text")
      */
@@ -68,7 +69,10 @@ class Evenement
 
         return $this;
     }
-
+    public function getSlug(): string
+    {
+        return(new Slugify())->slugify($this->titre);
+    }
     public function getContenu(): ?string
     {
         return $this->contenu;
